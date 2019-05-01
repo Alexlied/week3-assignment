@@ -7,51 +7,46 @@ export default class RentalList extends React.Component {
         super(props);
         this.state = {
             inCart: [],
-            newItem: ''
+            newItem: '',
+            cartSum: 0
         };
     }
 
-    addToCart = (idx) => {
+    addToCart = (d, idx) => {
         return (event) => {
-            console.log("idx: " + idx);
-
             this.setState(prevState => {
-                console.log("prevState: " + prevState);
-    
                 const newItem = {
-                    value: prevState.newItem
+                    value: d
                 };
-    
+                console.log("newItem: " + newItem.value);
                 console.log("state new item: " + this.state.newItem);
                 console.log("state incart: " + this.state.inCart);
-    
+
                 return {
                     inCart: [...prevState.inCart, newItem],
-                    newItem: ''
+                    newItem: '',
+                    cartSum: prevState.cartSum + newItem.value.payment.cost
                 };
             });
         }
 
     }
 
-    // onChange = (event) => {
-    //     const newItem = event.target.value;
-    //     this.setState(prevState => {
-    //         return {
-    //             newItem: newItem
-    //         };
-    //     })
-    // }
-
     render() {
         const listItems = airbnbs
-            .map((d, k) => <RentalItem data={d} key={k} onClick={this.addToCart(k)} />);
+            .map((d, k) => <RentalItem data={d} key={k} onClick={this.addToCart(d, k)} />);
 
         return (
             <div className='col-75'>
                 <div className='container'>
-                {/* <label>{this.state.inCart}</label> */}
                     {listItems}
+                </div>
+
+                <div className="cart">
+                    {this.state.inCart.map(item => {
+                        return <p className="cart-item">{item.value.title} <span className="cart-cost">${item.value.payment.cost}</span></p>;
+                    })}
+                    <p className="cart-total">Total: <span className="cart-cost">${this.state.cartSum}</span></p>
                 </div>
             </div>
         );
