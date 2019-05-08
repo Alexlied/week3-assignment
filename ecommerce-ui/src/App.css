@@ -57,6 +57,7 @@ html {
 
 .item {
   margin: auto; 
+  cursor: pointer;
 }
 
 .item-picture {
@@ -90,10 +91,33 @@ html {
   padding: 0 16px;
 }
 
+.cart-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+.cart-contents {
+  margin: auto;
+}
+
 .cart-total {
   font-weight: bold;
 }
 
 .cart-cost {
   float: right;
+  font-weight: bold;
+}
+
+.remove-button {
+  background-color: rgb(163, 33, 44);
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
