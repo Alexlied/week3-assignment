@@ -35,9 +35,6 @@ export default class App extends React.Component {
 
     removeRental = (idx) => {
         const selectedRental = this.state.selectedRentals[idx];
-        console.log("remove: " + idx);
-        console.log("total cost: " + this.state.rentalTotal);
-        console.log("subtracting: " + selectedRental.payment.cost);
         const updatedSelectedRentals = [...this.state.selectedRentals];
         updatedSelectedRentals.splice(idx, 1);
         const updatedRentalTotal = this.state.rentalTotal - selectedRental.payment.cost;

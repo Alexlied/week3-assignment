@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 export default class ShoppingCart extends React.Component {
     static propTypes = {
-        rentalTotal: PropTypes.number.isRequired
+        rentalTotal: PropTypes.number.isRequired,
+        selected: PropTypes.array.isRequired
     }
 
     render() {
