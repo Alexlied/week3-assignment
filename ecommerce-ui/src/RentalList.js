@@ -22,13 +22,6 @@ export default class RentalList extends React.Component {
 
         return (
             <div className='col-75'>
-                {/* 
-                <div className="cart">
-                    {this.state.inCart.map(item => {
-                        return <p className="cart-item">{item.value.title} <span className="cart-cost">${item.value.payment.cost}</span></p>;
-                    })}
-                    <p className="cart-total">Total: <span className="cart-cost">${this.state.cartSum}</span></p>
-                </div> */}
                 <div className='container'>
                     {rentalList}
                 </div>

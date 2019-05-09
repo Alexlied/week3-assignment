@@ -23,14 +23,11 @@ export default class RentalItem extends React.Component {
                 stars: PropTypes.number.isRequired,
                 reviews: PropTypes.number.isRequired
             })
-          }).isRequired
+        }).isRequired
     }
-
 
     render() {
         const rental = this.props.rental;
-
-        //const {rental, onClick, idx, buttonText} = this.props;
 
         return (
             <div className='item' onClick={this.props.onClick}>
@@ -39,9 +36,10 @@ export default class RentalItem extends React.Component {
                 <div className='item-houseType'>{rental.houseType}</div>
                 <div className='item-location'>{rental.location.city}, {rental.location.country}</div>
                 <div className='item-payment'>${rental.payment.cost} per night {rental.payment.description ? ' - ' + rental.payment.description : ""}</div>
-                {/* <div className='item-rating'>{rental.location.rating.stars}</div> */}
+                <div className='item-rating'>{rental.rating.stars} Stars</div>
+                <div className='item-reviews'>{rental.rating.reviews} Reviews</div>
+                <div className='item-host-name'><b>{rental.host.isSuperhost ? "Superhost" : "Host"}:</b> {rental.host.name} </div>
             </div>
         );
-
     }
 }

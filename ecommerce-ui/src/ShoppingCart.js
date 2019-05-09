@@ -17,18 +17,13 @@ export default class ShoppingCart extends React.Component {
                 );
             });
 
-
-
         return (
             <div className="col-25">
                 <div className="container">
-                    {/* <div className="cart-title">Cart</div> */}
                     <div className="cart-contents">
                         {rentalList}
                         <div className="cart-total">Total: <span className="cart-cost">${this.props.rentalTotal}</span></div>
                     </div>
-
-
                 </div>
             </div>
         );
